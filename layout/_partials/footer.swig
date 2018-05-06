@@ -38,10 +38,21 @@
   {% set nofollow = ' rel="external nofollow"' %}
 {% endif %}
 
+<div>
+  <span id="busuanzi_container_site_pv">
+    <i class="fa fa-eye"></i> 总访问量 &nbsp;<span id="busuanzi_value_site_pv"></span> 
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">
+    <i class="fa fa-user"></i> 访客数 &nbsp;<span id="busuanzi_value_site_uv"></span> 
+  </span>
+</div>
+
+{#}
 {% if theme.footer.powered.enable %}
-  <div class="powered-by">{#
-  #}{{ __('footer.powered', '<a class="theme-link" target="_blank"' + nofollow + ' href="https://hexo.io">Hexo</a>') }}{% if theme.footer.powered.version %} v{{ hexo_env('version') }}{% endif %}{#
-#}</div>
+  <div class="powered-by">
+    {{ __('footer.powered', '<a class="theme-link" target="_blank"' + nofollow + ' href="https://hexo.io">Hexo</a>') }}{% if theme.footer.powered.version %} v{{ hexo_env('version') }}{% endif %}
+  </div>
 {% endif %}
 
 {% if theme.footer.powered.enable and theme.footer.theme.enable %}
@@ -49,16 +60,21 @@
 {% endif %}
 
 {% if theme.footer.theme.enable %}
-  <div class="theme-info">{#
-  #}{{ __('footer.theme') }} &mdash; {#
-  #}<a class="theme-link" target="_blank"{{ nofollow }} href="https://github.com/theme-next/hexo-theme-next">{#
-    #}NexT.{{ theme.scheme }}{#
-  #}</a>{% if theme.footer.theme.version %} v{{ version }}{% endif %}{#
-#}</div>
+  <div class="theme-info">
+  {{ __('footer.theme') }} &mdash; {#
+  <a class="theme-link" target="_blank"{{ nofollow }} href="https://github.com/theme-next/hexo-theme-next">
+    NexT.{{ theme.scheme }}
+  </a>{% if theme.footer.theme.version %} v{{ version }}{% endif %}
+</div>
 {% endif %}
+#}
 
 {% if theme.footer.custom_text %}
   <div class="footer-custom">{#
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
